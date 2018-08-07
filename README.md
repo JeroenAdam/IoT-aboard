@@ -1,4 +1,4 @@
-# Welcome to my IoT-aboard notes/repository
+ # Welcome to my IoT-aboard notes/repository
 
  I have been implementing a bright LED matrix (+Raspberry Pi Zero W) functioning as a (data) repeater for displaying critical navigation data.
  It is mounted below deck at the mast support and readable at the steer at about 8m. distance. A short video [here](http://www.adambahri.com/images/brightLEDmatrix.mp4).
@@ -12,7 +12,7 @@
 
 # My current project
 
-Now it's time to expand on that, I'll be diving into [Node.js](https://nodejs.org/en/about/), I'll code my first [Signal K Node server plugin](https://github.com/SignalK/signalk-server-node/blob/master/SERVERPLUGINS.md). SignalK is a modern and open data format for marine use with the [server node](https://github.com/SignalK/signalk-server-node) being built on Node.js and making use of JSON, websockets and HTTP. It provides a method for processing/sharing information in a way that is friendly to wifi, cellphones, [tablets](http://signalk.org/images/gallery/test_image1.jpg) and the internet. 
+Now it's time to expand on that, I'll be diving into [Node.js](https://nodejs.org/en/about/), I'll code my first [Signal K Node server plugin](https://github.com/SignalK/signalk-server-node/blob/master/SERVERPLUGINS.md). SignalK is a modern and open data format for marine use with the [server node](https://github.com/SignalK/signalk-server-node) being built on Node.js and making use of [JSON](http://signalk.org/specification/1.0.4/doc/data_model.html), websockets and HTTP. It provides a method for processing/sharing information in a way that is friendly to wifi, cellphones, [tablets](http://signalk.org/images/gallery/test_image1.jpg) and the internet. 
 
 My personal project is a solution based on such a SignalK server and my bright LED matrix for safety purposes when navigating long routes.
 I don't trust my wife/autopilot handling the steer, but I didn't tell my wife about this yet :)
@@ -31,7 +31,7 @@ Some challenges:
 - the SignalK server is mounted behind wood at the navigation station and is some distance away from the LED matrix which is plugged in a second Raspberry Pi Zero W, the LED matrix will need to be controllable over HTTP
 - I'm not an experienced Javascript programmer, luckily I found a [npm module](https://github.com/guigrpa/sense-hat) for handling the LED matrix.
 
-All the above has changed how boat owners consume and interact with data on their boat, I'm excited to have started my journey into this technology. 
+All the above has changed how boat owners consume and interact with data on their boat lately, I'm excited to have started my journey into this technology. 
 
 Future updates will show how this is progressing...
 
