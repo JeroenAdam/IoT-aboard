@@ -1,4 +1,4 @@
-
+and 
 Welcome to my IoT-aboard notes/repository
 
  I have been implementing a bright LED matrix (+Raspberry Pi Zero W) functioning as a (data) repeater for displaying critical navigation data.
