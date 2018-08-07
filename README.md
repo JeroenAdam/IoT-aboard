@@ -1,5 +1,4 @@
-and 
-Welcome to my IoT-aboard notes/repository
+# Welcome to my IoT-aboard notes/repository
 
  I have been implementing a bright LED matrix (+Raspberry Pi Zero W) functioning as a (data) repeater for displaying critical navigation data.
  It is mounted below deck at the mast support and readable at the steer at about 8m. distance. A short video [here](http://www.adambahri.com/images/brightLEDmatrix.mp4).
@@ -15,7 +14,7 @@ Welcome to my IoT-aboard notes/repository
 
 Now it's time to expand on that, I'll be diving into [Node.js](https://nodejs.org/en/about/), I'll code my first [Signal K Node server plugin](https://github.com/SignalK/signalk-server-node/blob/master/SERVERPLUGINS.md). SignalK is a modern and open data format for marine use with the [server node](https://github.com/SignalK/signalk-server-node) being built on Node.js and making use of JSON, websockets and HTTP. It provides a method for processing/sharing information in a way that is friendly to wifi, cellphones, tablets and the internet. 
 
-My personal project is a solution based on SignalK my bright LED matrix for safety purposes when navigating long routes.
+My personal project is a solution based on SignalK and my bright LED matrix for safety purposes when navigating long routes.
 I don't trust my wife/autopilot, but I didn't tell my wife about this yet :)
 I'd like to see the LED matrix show compass heading (as I managed with Node-RED) while the plugin compares the current heading against a preset value. Let's say that the compass course deviates 20 degrees from my preset variable, then I want the LED matrix to display the unused pixels in red blinking.
 Other kind of alarms would be thinkable as well:
