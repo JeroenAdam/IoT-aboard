@@ -1,3 +1,4 @@
+
 Welcome to my IoT-aboard notes/repository
 
  I have been implementing a bright LED matrix (+Raspberry Pi Zero W) functioning as a (data) repeater for displaying critical navigation data.
@@ -12,9 +13,9 @@ Welcome to my IoT-aboard notes/repository
 
 # My current project
 
-Now it's time to expand on that, I'll be diving into [Node.js](https://nodejs.org/en/about/), I'll code my first [Signal K Node server plugin](https://github.com/SignalK/signalk-server-node/blob/master/SERVERPLUGINS.md) (=event-driven application, running server side)
+Now it's time to expand on that, I'll be diving into [Node.js](https://nodejs.org/en/about/), I'll code my first [Signal K Node server plugin](https://github.com/SignalK/signalk-server-node/blob/master/SERVERPLUGINS.md). SignalK is a modern and open data format for marine use with the [server node](https://github.com/SignalK/signalk-server-node) being built on Node.js and making use of JSON, websockets and HTTP. It provides a method for processing/sharing information in a way that is friendly to wifi, cellphones, tablets and the internet. 
 
-The goal is to use the LED matrix for safety purposes when navigating long routes.
+My personal project is a solution based on SignalK my bright LED matrix for safety purposes when navigating long routes.
 I don't trust my wife/autopilot, but I didn't tell my wife about this yet :)
 I'd like to see the LED matrix show compass heading (as I managed with Node-RED) while the plugin compares the current heading against a preset value. Let's say that the compass course deviates 20 degrees from my preset variable, then I want the LED matrix to display the unused pixels in red blinking.
 Other kind of alarms would be thinkable as well:
@@ -23,13 +24,15 @@ Other kind of alarms would be thinkable as well:
 - water depth below a certain treshold 
 - barometric pressure dropping at an alarming rate
 
-The remote (=mini router with button) will serve as an interface to acknowledge alarms by sending MQTT messages. A long button press could be used to adjust tresholds. There is also a switch which can be in 3 different positions.
+The remote (=mini router with button) will serve as an interface to acknowledge alarms. A long button press could be used to adjust tresholds. There is also a switch which can be in 3 different positions.
 
-Beside getting my NMEA sensor data (compass course/wind speed/atmospheric pressure/speed through water) to my [SignalK (=The Open Marine Data Standard)](https://github.com/SignalK/signalk-server-node) server via USB, I found a [binary](https://github.com/mxtommy/SigkSens) to reprogram my ESP8266 unit to send engine temperature data to the SignalK server over wifi and some [JSON code](https://signalk-dev.slack.com/archives/C03F1MKQG/p1531727867000238) to add this unit as a custom (data) provider.
+Beside getting my NMEA sensor data (compass course/wind speed/atmospheric pressure/speed through water) to my [SignalK](https://github.com/SignalK/signalk-server-node) server via USB, I found a [binary](https://github.com/mxtommy/SigkSens) to reprogram my ESP8266 unit to send engine temperature data to the SignalK server over wifi and some [JSON code](https://signalk-dev.slack.com/archives/C03F1MKQG/p1531727867000238) to add this unit as a custom (data) provider.
 
 Some challenges:
-- the SignalK/OpenPlotter server is mounted behind wood at the navigation station and is some distance away from the LED matrix which is plugged in a second Raspberry Pi Zero W, the LED matrix will need to be controllable over HTTP
-- I'm not an experienced Javascript programmer, luckily I found a [npm module](https://github.com/guigrpa/sense-hat) for handling the LED matrix 
+- the SignalK server is mounted behind wood at the navigation station and is some distance away from the LED matrix which is plugged in a second Raspberry Pi Zero W, the LED matrix will need to be controllable over HTTP
+- I'm not an experienced Javascript programmer, luckily I found a [npm module](https://github.com/guigrpa/sense-hat) for handling the LED matrix.
+
+All the above has changed how boat owners consume and interact with data on their boat, I'm excited to have started my journey into this technology. 
 
 Future updates will show how this is progressing...
 
