@@ -1,6 +1,8 @@
  # Welcome to my IoT-aboard notes/repository
 
- I have been implementing a bright LED matrix (+Raspberry Pi Zero W) functioning as a (data) repeater for displaying critical navigation data.
+IoT (and open source software) have changed how boat owners consume and interact with data on their boat in the past decade, I'm very excited to have started my journey into this technology. 
+
+ This summer, I have been implementing a bright LED matrix (+Raspberry Pi Zero W) functioning as a (data) repeater for displaying critical navigation data.
  It is mounted below deck at the mast support and readable at the steer at about 8m. distance. A short video [here](http://www.adambahri.com/images/brightLEDmatrix.mp4).
  Don't mind the LED flickering, it is an issue with the camera not being able to record the LED screen as the human eye can see it.
 
@@ -30,8 +32,6 @@ Beside getting my NMEA sensor data (compass course/wind speed/atmospheric pressu
 Some challenges:
 - the SignalK server is mounted behind wood at the navigation station and is some distance away from the LED matrix which is plugged in a second Raspberry Pi Zero W, the LED matrix will need to be controllable over HTTP
 - I'm not an experienced Javascript programmer, luckily I found a [npm module](https://github.com/guigrpa/sense-hat) for handling the LED matrix.
-
-Open source solutions, as described above, and as continued below, have changed how boat owners consume and interact with data on their boat, I'm excited to have started my journey into this technology. 
 
 Future updates will show how this is progressing...
 
