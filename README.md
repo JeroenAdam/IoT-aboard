@@ -31,7 +31,7 @@ Some challenges:
 - the SignalK server is mounted behind wood at the navigation station and is some distance away from the LED matrix which is plugged in a second Raspberry Pi Zero W, the LED matrix will need to be controllable over HTTP
 - I'm not an experienced Javascript programmer, luckily I found a [npm module](https://github.com/guigrpa/sense-hat) for handling the LED matrix.
 
-All the above has changed how boat owners consume and interact with data on their boat lately, I'm excited to have started my journey into this technology. 
+Open source solutions, as described above, and as continued below, have changed how boat owners consume and interact with data on their boat, I'm excited to have started my journey into this technology. 
 
 Future updates will show how this is progressing...
 
