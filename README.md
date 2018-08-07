@@ -12,7 +12,7 @@
 
 # My current project
 
-Now it's time to expand on that, I'll be diving into [Node.js](https://nodejs.org/en/about/), I'll code my first [Signal K Node server plugin](https://github.com/SignalK/signalk-server-node/blob/master/SERVERPLUGINS.md). SignalK is a modern and open data format for marine use with the [server node](https://github.com/SignalK/signalk-server-node) being built on Node.js and making use of JSON, websockets and HTTP. It provides a method for processing/sharing information in a way that is friendly to wifi, cellphones, tablets and the internet. 
+Now it's time to expand on that, I'll be diving into [Node.js](https://nodejs.org/en/about/), I'll code my first [Signal K Node server plugin](https://github.com/SignalK/signalk-server-node/blob/master/SERVERPLUGINS.md). SignalK is a modern and open data format for marine use with the [server node](https://github.com/SignalK/signalk-server-node) being built on Node.js and making use of JSON, websockets and HTTP. It provides a method for processing/sharing information in a way that is friendly to wifi, cellphones, [tablets](http://signalk.org/images/gallery/test_image1.jpg) and the internet. 
 
 My personal project is a solution based on such a SignalK server and my bright LED matrix for safety purposes when navigating long routes.
 I don't trust my wife/autopilot handling the steer, but I didn't tell my wife about this yet :)
