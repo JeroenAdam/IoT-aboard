@@ -124,7 +124,7 @@ Future updates will show how this is progressing...
  - for non-Raspbian OS, install node-red-node-pi-sense-hat package
  - connect to ESP_Easy_0 wifi and input router IP/user/password + reboot ESP unit, connect to router and browse to IP of ESP unit
  - configure to connect to OP, fixed IP 10.10.10.3, Security = OpenPlotter user/password
- - add controller: OpenHAB MQTT with Controller IP set to IP of OpenPlotter/linux device, port 1833, user/pass
+ - add controller: OpenHAB MQTT with Controller IP set to IP of OpenPlotter/linux device, port 1883, user/pass
  - add device: DS18b20, Name = Sensor1, Enabled, GPIO-2, wait for detection and select Device Address, Delay = 2, Value = Temperature1
  - connections: follow diagram, don't forget 4K7 resistor between GPIO-2 and VCC, see [link](https://www.elec-cafe.com/temperature-sensor-on-the-web-with-esp8266-and-ds18b20)
  - ESP Easy tools - system log - will show the outgoing MQTT messages in the interval as set (2s)
