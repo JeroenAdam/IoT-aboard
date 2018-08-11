@@ -120,7 +120,7 @@ Future updates will show how this is progressing...
 
  On linux device (OpenPlotter or other)
  
- - assure Node Red + Mosquitto are fully functional (already OK on OpenPlotter)
+ - assure Node Red is fully functional (already OK on OpenPlotter)
  - for non-Raspbian OS, install node-red-node-pi-sense-hat package
  - connect to ESP_Easy_0 wifi and input router IP/user/password + reboot ESP unit, connect to router and browse to IP of ESP unit
  - configure to connect to OP, fixed IP 10.10.10.3, Security = OpenPlotter user/password
