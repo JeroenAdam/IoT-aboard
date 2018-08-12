@@ -84,8 +84,8 @@ Future updates will show how this is progressing...
     http://10.10.10.149/setNewHostname?hostname=ESP1
     http://10.10.10.149/setSignalKPort?port=3000
     http://10.10.10.149/setSignalKHost?host=10.10.10.1
-    http://10.10.10.149/setSensorAttr?address=28:FF:79:26:81:16:04:41&attrName=tempK&path=propulsion.eng.temperature //replace with the  address of your sensor, for the moment the only way to find it is in serial mutput. Keep or replace path as appropriate
-    http://10.10.10.149/setSignalKToken?... //replace ... with the token obtained by executing the below command in the home directory on OpenPlotter)
+    http://10.10.10.149/setSensorAttr?address=28:FF:79:26:81:16:04:41&attrName=tempK&path=propulsion.eng.temperature //comment: replace with the address of your sensor, for the moment the only way to find it is in serial mutput. Keep or replace path as appropriate
+    http://10.10.10.149/setSignalKToken?... //comment: replace ... with the token obtained by executing the below command in the home directory on OpenPlotter)
     signalk-generate-token -u openplotter -e "999d" -s ./.signalk/security.json
     ```
 
