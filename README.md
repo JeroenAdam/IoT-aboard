@@ -7,7 +7,7 @@ It is mounted below deck at the mast support and readable at the steer about 8m.
 
  I cycle through 5 views (engine temperature/compass course/wind speed/atmospheric pressure/speed through water) using a remote control. The LED display quickly scrolls the data repeatedly. The remote control actually is a mini router with the stock firmware replaced by OpenWRT + Mosquitto.
  
- It was quite easy to set up thanks to [Node-RED](https://nodered.org) (=browser-based editor), I only had to come up with about 40 lines of [Javascript code](https://github.com/JeroenAdam/IoT-aboard/blob/master/snippets.js).
+ It was quite easy to set up thanks to [Node-RED](https://nodered.org) (=browser-based editor), I only had to come up with some logical thinking and about 40 lines of [Javascript code](https://github.com/JeroenAdam/IoT-aboard/blob/master/snippets.js).
 
 
 # My current project
