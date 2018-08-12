@@ -17,9 +17,9 @@ Now I want to expand on this functionallity, I'll be diving into [Node.js](https
 My current project is the development of a plugin for such a Signal K server for the purpose of safety when navigating long routes.
 
 I must confess that I don't fully trust my wife/autopilot handling the steer, but I didn't tell my wife about this yet :)
-I'd like to see my LED display show compass heading (as I managed earlier with Node-RED) while my server plugin compares the current heading against a preset value. Let's say that the compass course deviates 20 degrees from my preset variable, then I want the LED display to display the unused pixels in red blinking.
+I'd like to see my LED display show compass heading (as I managed earlier with Node-RED) while the server plugin compares the current heading against a preset value. Let's say that the compass course deviates 20 degrees from my preset variable, then I want the LED display to display the unused pixels in red blinking.
 Other kind of alarms would be thinkable as well:
-- engine temperature (ESP8266) reaching a certain treshold 
+- engine temperature reaching a certain treshold 
 - wind speed reaching a certain treshold 
 - water depth below a certain treshold 
 - barometric pressure dropping at an alarming rate
