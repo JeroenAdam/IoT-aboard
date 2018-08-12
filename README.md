@@ -14,23 +14,23 @@ IoT (and open source software) have recently changed how boat owners consume and
 
 # My current project
 
-Now I want to expand functionallity, I'll be diving into [Node.js](https://nodejs.org/en/about/), I'll code my first [Signal K Node server plugin](https://github.com/SignalK/signalk-server-node/blob/master/SERVERPLUGINS.md). Signal K is a modern and open data format for marine use with the [server node](https://github.com/SignalK/signalk-server-node) being built on Node.js and making use of [JSON](http://signalk.org/specification/1.0.4/doc/data_model.html), websockets and HTTP. It provides a method for processing/sharing information in a way that is friendly to wifi, cellphones, [tablets](http://signalk.org/images/gallery/test_image1.jpg) and the internet. 
+Now I want to expand functionallity, I'll be diving into [Node.js](https://nodejs.org/en/about/), I'll code my first [Signal K Node server plugin](https://github.com/SignalK/signalk-server-node/blob/master/SERVERPLUGINS.md). Signal K is a modern and open data format for marine use with the [server node](https://github.com/SignalK/signalk-server-node) being built on Node.js and making use of [JSON](http://signalk.org/specification/1.0.4/doc/data_model.html), websockets and HTTP. It provides a method for processing/sharing vessel/equipment information in a way that is friendly to wifi, cellphones, [tablets](http://signalk.org/images/gallery/test_image1.jpg) and the internet. 
 
-My personal project is a solution based on such a Signal K server combined with my bright LED matrix for the purpose of safety when navigating long routes.
-I don't trust my wife/autopilot handling the steer, but I didn't tell my wife about this yet :)
-I'd like to see the LED matrix show compass heading (as I managed with Node-RED) while the plugin compares the current heading against a preset value. Let's say that the compass course deviates 20 degrees from my preset variable, then I want the LED matrix to display the unused pixels in red blinking.
+My personal project is a solution based on such a Signal K server combined with my bright LED display for the purpose of safety when navigating long routes.
+I must confess that I don't fully trust my wife/autopilot handling the steer, but I didn't tell my wife about this yet :)
+I'd like to see the LED matrix show compass heading (as I managed earlier with Node-RED) while my server plugin compares the current heading against a preset value. Let's say that the compass course deviates 20 degrees from my preset variable, then I want the LED matrix to display the unused pixels in red blinking.
 Other kind of alarms would be thinkable as well:
 - engine temperature (ESP8266) reaching a certain treshold 
 - wind speed reaching a certain treshold 
 - water depth below a certain treshold 
 - barometric pressure dropping at an alarming rate
 
-The remote (=mini router with button) will serve as an interface to acknowledge alarms. A long button press could be used to adjust tresholds. There is also a switch which can be in 3 different positions.
+The remote (=mini router with button) will serve as an interface to acknowledge alarms. A long button press could be used to adjust tresholds. There is also a switch which can be set to 3 different positions.
 
-Beside getting my NMEA sensor data (compass course/wind speed/atmospheric pressure/speed through water) to my [Signal K](https://github.com/SignalK/signalk-server-node) server via USB, I found a [binary](https://github.com/mxtommy/SigkSens) to reprogram my ESP8266 unit to send engine temperature data to the Signal K server over wifi and some [JSON code](https://signalk-dev.slack.com/archives/C03F1MKQG/p1531727867000238) to add this unit as a custom (data) provider.
+Beside getting my NMEA sensor data (compass course/wind speed/speed through water) to my [Signal K](https://github.com/SignalK/signalk-server-node) server via USB, I added atmospheric pressure coming from the IMY. I also found a [library](https://github.com/mxtommy/SigkSens) to reprogram my ESP8266 unit to send engine temperature data to the Signal K server over wifi and some [instructions](https://slack-files.com/T02ENM6QA-FC5GCJ88H-a74ea73f0f) to add this unit as a (data) provider.
 
-Some challenges:
-- the Signal K server is mounted behind wood at the navigation station and is some distance away from the LED matrix which is plugged in a second Raspberry Pi Zero W, the LED matrix will need to be controllable over HTTP
+Next challenges:
+- the Signal K server is mounted behind wood at the navigation station and is some distance away from the LED display which is plugged on top of my second Raspberry (=Pi Zero W), the LED display will need to be controllable over HTTP
 - I'm not an experienced Javascript programmer, luckily I found a [npm module](https://github.com/guigrpa/sense-hat) for handling the LED matrix.
 
 Future updates will show how this is progressing...
