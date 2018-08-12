@@ -62,8 +62,8 @@ Future updates will show how this is progressing...
    Follow the 6 steps on https://randomnerdtutorials.com/how-to-install-esp8266-board-arduino-ide
    
    Follow step 7 + 8 on https://slack-files.com/T02ENM6QA-FC5GCJ88H-a74ea73f0f
-   The three below libraries are not published in the library manager, so for each of them: run a git clone + zip it + add .zip library (using Arduino IDE)
-    -> Reactduino/Reactduino / me-no-dev/ESPAsyncWebServer / me-no-dev/ESPAsyncTCP
+   The three below libraries are not published in the library manager, so for each of them: run a git clone + add .zip library (using Arduino IDE)
+    -> https://github.com/Reactduino/Reactduino / https://github.com/me-no-dev/ESPAsyncWebServer / https://github.com/me-no-dev/ESPAsyncTCP
     
     Open SigkSens.ino which is a part of the SigkSens directory
     
