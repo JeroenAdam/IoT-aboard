@@ -62,12 +62,12 @@ Future updates will show how this is progressing...
    Follow the 6 steps on https://randomnerdtutorials.com/how-to-install-esp8266-board-arduino-ide
    
    Follow step 7 + 8 on https://slack-files.com/T02ENM6QA-FC5GCJ88H-a74ea73f0f
-   The three below libraries are not published in the library manager, so for each of them: run a git clone + add .zip library (using Arduino IDE)
+   The three below libraries are not published in the library manager, so for each of them: do a git clone + add .zip library (using Arduino IDE)
     -> https://github.com/Reactduino/Reactduino / https://github.com/me-no-dev/ESPAsyncWebServer / https://github.com/me-no-dev/ESPAsyncTCP
     
     Open SigkSens.ino which is a part of the SigkSens directory
     
-    For any ESP-01 unit, go to the 4th tab (Arduino IDE) and uncomment line 64 of config.h (to enable One-Wire) + change the number 13 to 2
+    Go to the 4th tab (Arduino IDE) and uncomment line 64 of config.h (to enable One-Wire) + In case of ESP-01 unit (instead of ESP-12E), change the number 13 to 2
     
     Assure Arduino IDE is set to board type 'Generic ESP8266 module', flash size is set to 1M and 64K SPIFFS and COM port to what is found in Device Manager on your PC
     
