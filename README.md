@@ -144,13 +144,15 @@ Future updates will show how this is progressing...
     
     Launch /var/log/syslog on OpenPlotter and search for the latest DHCPOFFER, note the IP address
     
-    Run the below 5 web requests (but replace with the IP from the previous step), the browser should return "success" for each of them\\
-      http://10.10.10.149/setNewHostname?hostname=ESP1\\
-      http://10.10.10.149/setSignalKPort?port=3000\\
-      http://10.10.10.149/setSignalKHost?host=10.10.10.1\\
-      http://10.10.10.149/setSensorAttr?address=28:FF:79:26:81:16:04:41&attrName=tempK&path=propulsion.eng.temperature (replace with the  address of your sensor, keep or replace path as appropriate)\\
-      http://10.10.10.149/setSignalKToken?... (replace ... with the token obtained by executing the below command in the home directory on OpenPlotter)\\
-      signalk-generate-token -u openplotter -e "999d" -s ./.signalk/security.json\\
+    Run the below 5 web requests (but replace with the IP from the previous step), the browser should return "success" for each of them
+    ```
+    http://10.10.10.149/setNewHostname?hostname=ESP1
+    http://10.10.10.149/setSignalKPort?port=3000
+    http://10.10.10.149/setSignalKHost?host=10.10.10.1
+    http://10.10.10.149/setSensorAttr?address=28:FF:79:26:81:16:04:41&attrName=tempK&path=propulsion.eng.temperature (replace with the  address of your sensor, keep or replace path as appropriate)
+    http://10.10.10.149/setSignalKToken?... (replace ... with the token obtained by executing the below command in the home directory on OpenPlotter)
+    signalk-generate-token -u openplotter -e "999d" -s ./.signalk/security.json
+    ```
 
 * Last steps: power off/on ESP unit, launch Signal K and see if a new 'ws' provider is shown
 
