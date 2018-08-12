@@ -23,7 +23,7 @@ Other kind of alarms would be thinkable as well:
 - water depth below a certain treshold 
 - barometric pressure dropping at an alarming rate
 
-The remote (=mini router with button) will serve as an interface to acknowledge alarms. A long button press could be used to adjust tresholds. There is also a switch which can be set to 3 different positions.
+The remote control (=mini router with button) will serve as an interface to acknowledge alarms. A long button press could be used to adjust tresholds. There is also a switch which can be set to 3 different positions.
 
 Beside getting my NMEA sensor data (compass course/wind speed/speed through water) to my [Signal K](https://github.com/SignalK/signalk-server-node) server via USB, I added atmospheric pressure coming from the IMY. I also found a [library](https://github.com/mxtommy/SigkSens) to reprogram my ESP8266 unit to send engine temperature data to the Signal K server over wifi and some [instructions](https://slack-files.com/T02ENM6QA-FC5GCJ88H-a74ea73f0f) to add this unit as a (data) provider.
 
