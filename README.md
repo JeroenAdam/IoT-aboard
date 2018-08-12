@@ -14,7 +14,7 @@ It is mounted below deck at the mast support and readable at the steer about 8m.
 
 Now I want to expand on this functionallity, I'll be diving into [Node.js](https://nodejs.org/en/about/), I'll code my first [Signal K Node server plugin](https://github.com/SignalK/signalk-server-node/blob/master/SERVERPLUGINS.md). Signal K is a modern and open data format for marine use with the [server node](https://github.com/SignalK/signalk-server-node) being built on Node.js and making use of [JSON](http://signalk.org/specification/1.0.4/doc/data_model.html), websockets and HTTP. It provides a method for processing/sharing vessel/equipment information in a way that is friendly to wifi, cellphones, [tablets](http://signalk.org/images/gallery/test_image1.jpg) and the internet. 
 
-My personal project is a solution based on such a Signal K server combined with my bright LED display for the purpose of safety when navigating long routes. The server is hosted on a Raspberry Pi running Linux.
+My personal project is a solution based on such a Signal K server combined with my bright LED display for the purpose of safety when navigating long routes. The server is hosted on a Raspberry Pi running OpenPlotter (=Debian Linux customized for marine use).
 I must confess that I don't fully trust my wife/autopilot handling the steer, but I didn't tell my wife about this yet :)
 I'd like to see the LED matrix show compass heading (as I managed earlier with Node-RED) while my server plugin compares the current heading against a preset value. Let's say that the compass course deviates 20 degrees from my preset variable, then I want the LED matrix to display the unused pixels in red blinking.
 Other kind of alarms would be thinkable as well:
