@@ -2,21 +2,21 @@
 
 IoT (and open source software) have recently changed how boat owners consume and interact with data on their boat, I'm very excited to present you the beginning of my journey into this technology. 
 
- This summer, I have been implementing a bright LED matrix (+Raspberry Pi Zero W) functioning as a (data) repeater for displaying critical navigation data.
- It is mounted below deck at the mast support and readable at the steer at about 8m. distance. A short video [here](http://www.adambahri.com/images/brightLEDmatrix.mp4).
+ This summer, I have been implementing a bright LED display functioning as a (data) repeater for displaying critical navigation data.
+ It is mounted below deck at the mast support and readable at the steer about 8m. distance away. A short video [here](http://www.adambahri.com/images/brightLEDmatrix.mp4).
  Don't mind the LED flickering, it is an issue with the camera not being able to record the LED screen as the human eye can see it.
 
  In a second [video](http://www.adambahri.com/images/remotewifiswitch.mp4), you'll see the use of my remote wifi switch.
- It cycles through 5 views (engine temperature/compass course/wind speed/atmospheric pressure/speed through water) on each remote button press. The LED display quickly scrolls the data repeatedly. The remote wifi switch actually is a mini router with the stock firmware replaced with OpenWRT + Mosquitto.
+ It cycles through 5 views: engine temperature/compass course/wind speed/atmospheric pressure/speed through water. On each remote button press, the LED display quickly and repeatedly scrolls one sensor reading. The remote wifi switch actually is a mini router with the stock firmware replaced by OpenWRT + Mosquitto.
  
  It was quite easy to set up thanks to [Node-RED](https://nodered.org) (=browser-based editor), I only had to come up with about 40 lines of [Javascript code](https://github.com/JeroenAdam/IoT-aboard/blob/master/snippets.js).
 
 
 # My current project
 
-Now it's time to expand on that, I'll be diving into [Node.js](https://nodejs.org/en/about/), I'll code my first [Signal K Node server plugin](https://github.com/SignalK/signalk-server-node/blob/master/SERVERPLUGINS.md). SignalK is a modern and open data format for marine use with the [server node](https://github.com/SignalK/signalk-server-node) being built on Node.js and making use of [JSON](http://signalk.org/specification/1.0.4/doc/data_model.html), websockets and HTTP. It provides a method for processing/sharing information in a way that is friendly to wifi, cellphones, [tablets](http://signalk.org/images/gallery/test_image1.jpg) and the internet. 
+Now I want to expand functionallity, I'll be diving into [Node.js](https://nodejs.org/en/about/), I'll code my first [Signal K Node server plugin](https://github.com/SignalK/signalk-server-node/blob/master/SERVERPLUGINS.md). Signal K is a modern and open data format for marine use with the [server node](https://github.com/SignalK/signalk-server-node) being built on Node.js and making use of [JSON](http://signalk.org/specification/1.0.4/doc/data_model.html), websockets and HTTP. It provides a method for processing/sharing information in a way that is friendly to wifi, cellphones, [tablets](http://signalk.org/images/gallery/test_image1.jpg) and the internet. 
 
-My personal project is a solution based on such a SignalK server combined with my bright LED matrix for the purpose of safety when navigating long routes.
+My personal project is a solution based on such a Signal K server combined with my bright LED matrix for the purpose of safety when navigating long routes.
 I don't trust my wife/autopilot handling the steer, but I didn't tell my wife about this yet :)
 I'd like to see the LED matrix show compass heading (as I managed with Node-RED) while the plugin compares the current heading against a preset value. Let's say that the compass course deviates 20 degrees from my preset variable, then I want the LED matrix to display the unused pixels in red blinking.
 Other kind of alarms would be thinkable as well:
@@ -27,10 +27,10 @@ Other kind of alarms would be thinkable as well:
 
 The remote (=mini router with button) will serve as an interface to acknowledge alarms. A long button press could be used to adjust tresholds. There is also a switch which can be in 3 different positions.
 
-Beside getting my NMEA sensor data (compass course/wind speed/atmospheric pressure/speed through water) to my [SignalK](https://github.com/SignalK/signalk-server-node) server via USB, I found a [binary](https://github.com/mxtommy/SigkSens) to reprogram my ESP8266 unit to send engine temperature data to the SignalK server over wifi and some [JSON code](https://signalk-dev.slack.com/archives/C03F1MKQG/p1531727867000238) to add this unit as a custom (data) provider.
+Beside getting my NMEA sensor data (compass course/wind speed/atmospheric pressure/speed through water) to my [Signal K](https://github.com/SignalK/signalk-server-node) server via USB, I found a [binary](https://github.com/mxtommy/SigkSens) to reprogram my ESP8266 unit to send engine temperature data to the Signal K server over wifi and some [JSON code](https://signalk-dev.slack.com/archives/C03F1MKQG/p1531727867000238) to add this unit as a custom (data) provider.
 
 Some challenges:
-- the SignalK server is mounted behind wood at the navigation station and is some distance away from the LED matrix which is plugged in a second Raspberry Pi Zero W, the LED matrix will need to be controllable over HTTP
+- the Signal K server is mounted behind wood at the navigation station and is some distance away from the LED matrix which is plugged in a second Raspberry Pi Zero W, the LED matrix will need to be controllable over HTTP
 - I'm not an experienced Javascript programmer, luckily I found a [npm module](https://github.com/guigrpa/sense-hat) for handling the LED matrix.
 
 Future updates will show how this is progressing...
@@ -46,7 +46,7 @@ Future updates will show how this is progressing...
 
 * OpenPlotter: Enable MQTT -> localhost on port 1883, user/pass pi/raspberry
 
-* OpenPlotter: Launch SignalK, install Signalk-Node-Red webapp in the admin UI, import flowOP (node-red) stored in this repository
+* OpenPlotter: Launch Signal K, install Signalk-Node-Red webapp in the admin UI, import flowOP (node-red) stored in this repository
 
 * OpenWRT reset procedure: failsafe mode trigger after reset button blinking
   telnet to 192.168.1.1 (computer IP to 192.168.1.2 over LAN), jffs2reset -y, reboot -f
