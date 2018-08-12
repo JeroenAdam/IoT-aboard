@@ -1,6 +1,6 @@
- # Welcome to my IoT-aboard notes/repository
+# Welcome to my IoT-aboard notes/repository
 
-IoT (and open source software) have changed how boat owners consume and interact with data on their boat in the past decade, I'm very excited to have started my journey into this technology. 
+IoT (and open source software) have recently changed how boat owners consume and interact with data on their boat, I'm very excited to present you the beginning of my journey into this technology. 
 
  This summer, I have been implementing a bright LED matrix (+Raspberry Pi Zero W) functioning as a (data) repeater for displaying critical navigation data.
  It is mounted below deck at the mast support and readable at the steer at about 8m. distance. A short video [here](http://www.adambahri.com/images/brightLEDmatrix.mp4).
