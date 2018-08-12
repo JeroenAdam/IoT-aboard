@@ -46,7 +46,7 @@ Future updates will show how this is progressing...
 
 * OpenPlotter: Enable MQTT -> localhost on port 1883, user/pass pi/raspberry
 
-* OpenPlotter: Launch SignalK, install @Signalk/Signalk-Node-Red webapp in the admin UI
+* OpenPlotter: Launch SignalK, install Signalk-Node-Red webapp in the admin UI, import flowOP (node-red) stored in this repository
 
 * OpenWRT reset procedure: failsafe mode trigger after reset button blinking
   telnet to 192.168.1.1 (computer IP to 192.168.1.2 over LAN), jffs2reset -y, reboot -f
@@ -110,7 +110,7 @@ Future updates will show how this is progressing...
   
    node-red-start
   
-   import both node-red flows stored in this repository, MQTT nodes are set to connect to OpenPlotter, don't forget MQTT Security = OP user/password
+   import flowPiZeroW (node-red) stored in this repository, MQTT nodes are set to connect to OpenPlotter (signalk-node-red), don't forget MQTT Security = OP user/password
    
    sudo systemctl enable nodered.service
 
@@ -121,13 +121,11 @@ Future updates will show how this is progressing...
   - flash binary [ESP_Easy_mega-20180403_normal_ESP8266_1024](https://github.com/letscontrolit/ESPEasy/releases) with GPIO0 and GND together, using 10 Dupont cables, see [link](https://ambimod.jimdo.com/2017/01/26/tuto-comment-programmer-un-esp-01-et-l-utiliser-%C3%A0-la-place-d-un-nodemcu/)
  - after flashing, power off/on without GPIO0 and GND together, wait 2 minutes, ESP_Easy_0 wifi will come up, password "configesp"
 
- On linux device (OpenPlotter or other)
+ On OpenPlotter device (OpenPlotter or other)
  
  - assure Node Red is fully functional (already OK on OpenPlotter)
  - for non-Raspbian OS, install node-red-node-pi-sense-hat package
- - connect to ESP_Easy_0 wifi and input router IP/user/password + reboot ESP unit, connect to router and browse to IP of ESP unit
+ - connect to 'Unconfigured sensor' and input router IP/user/password + reboot ESP unit, connect to router and browse to IP of ESP unit
  - configure to connect to OP, fixed IP 10.10.10.3, Security = OpenPlotter user/password
- - add controller: OpenHAB MQTT with Controller IP set to IP of OpenPlotter/linux device, port 1883, user/pass
- - add device: DS18b20, Name = Sensor1, Enabled, GPIO-2, wait for detection and select Device Address, Delay = 2, Value = Temperature1
  - connections: follow diagram, don't forget 4K7 resistor between GPIO-2 and VCC, see [link](https://www.elec-cafe.com/temperature-sensor-on-the-web-with-esp8266-and-ds18b20)
- - ESP Easy tools - system log - will show the outgoing MQTT messages in the interval as set (2s)
+
