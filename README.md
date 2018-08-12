@@ -54,6 +54,7 @@ Future updates will show how this is progressing...
 * Preparation: flash ai-thinker-v1.1.1.bin using esp8266_flasher.exe with with [GPIO0 and GND connected together](https://ambimod.jimdo.com/2017/01/26/tuto-comment-programmer-un-esp-01-et-l-utiliser-%C3%A0-la-place-d-un-nodemcu/) , cables not longer than 20cm, prerequisite: 3.3V modified TTL to USB adapter at hand and [driver](http://www.arduined.eu/ch340g-converter-windows-7-driver-download/) installed. For connections, follow this [diagram](https://www.elec-cafe.com/temperature-sensor-on-the-web-with-esp8266-and-ds18b20), 4K7 resistor between GPIO-2 and VCC is needed.
 
 * Procedure:
+
    Download and install Arduino IDE
    
    Download and install git, run git clone https://github.com/mxtommy/SigkSens
@@ -93,9 +94,10 @@ Future updates will show how this is progressing...
 * Troubleshooting: use tcpdump (OpenPlotter) and Serial monitor (Arduino IDE), assure Arduino IDE is able to communicate with your ESP8266 module by reviewing the settings appropriate to your unit
 
 # Remote control installation
-* MR...
 
-* OpenWRT reset procedure: failsafe mode trigger after reset button blinking
+* Flash ([OpenWRT](https://wiki.openwrt.org/toh/tp-link/tl-mr3020) on TP-Link mini router
+
+* Router reset procedure: failsafe mode trigger after reset button blinking
   telnet to 192.168.1.1 (computer IP to 192.168.1.2 over LAN), jffs2reset -y, reboot -f
   Login with root/(empty) and set password same as OpenPlotter
 
@@ -161,5 +163,3 @@ Future updates will show how this is progressing...
  * run sudo systemctl enable nodered.service
   
  * import flowPiZeroW (node-red) stored in this repository, MQTT nodes are set to connect to OpenPlotter (signalk-node-red), don't forget MQTT Security = OP user/password
-   
-   
