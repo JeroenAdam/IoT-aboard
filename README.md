@@ -40,78 +40,12 @@ Future updates will show how this is progressing...
 - [Raspberry Pi Zero W](https://www.raspberrypi.org/products/raspberry-pi-zero-w/) + bright [LED matrix](https://www.raspberrypi.org/products/sense-hat/) for displaying critical navigation data (Linux/[Node-red](https://nodered.org)/MQTT)
 - Mini router converted to remote control for Raspberry Pi Zero W ([OpenWRT](https://wiki.openwrt.org/toh/tp-link/tl-mr3020)/MQTT)
 - Simrad BR24 radar (UDP reception from digital radar on [Intel NUC](http://www.adambahri.com/images/NUCNavstation.jpg) using [OpenCPN plugin](https://github.com/opencpn-radar-pi/radar_pi/))
-# Installation notes
+# OpenPlotter installation
 * OpenPlotter: Miniplex-3USB -> Serial tab -> assign USB device (auto-detected) to Kplex and set baud to 460800
 
 * OpenPlotter: Enable MQTT -> localhost on port 1883, user/pass pi/raspberry
 
 * OpenPlotter: Launch Signal K, install Signalk-Node-Red webapp in the admin UI, import flowOP (node-red) stored in this repository
-
-* OpenWRT reset procedure: failsafe mode trigger after reset button blinking
-  telnet to 192.168.1.1 (computer IP to 192.168.1.2 over LAN), jffs2reset -y, reboot -f
-  Login with root/(empty) and set password same as OpenPlotter
-
-* OpenWRT initial config: upload mosquitto packages using WinSCP to \tmp
-  install mosquitto packages using opkg install name_of_the_package [link](https://archive.openwrt.org/chaos_calmer/15.05/ar71xx/generic/packages/)
-  from base -> libuuid_2.25.2-4 + libpthread_0.9.33.2-1 + librt_0.9.33.2-1
-  from packages -> libcares_1.10.0 + libmosquitto-nossl_1.4.7 +
-  mosquitto-client-nossl_1.4.7 + mosquitto-nossl_1.4.7
-
-* OpenWRT set to both AP mode and client mode following [link](https://stackoverflow.com/questions/29555697/luci-openwrt-wifi-bridge-client-how-to-configure)
-  (In brief: fixed IP, bridge, scan and connect to OP AP, add another wifi interface = AP, set AP security)
-  IP's: 10.10.10.2 LAN + 10.0.0.1xx Wifi (DHCP OpenPlotter), OpenWRT now reachable over http/ssh on 10.10.10.2 (even without LAN cable, if connected to OpenWRT AP)
-
-  Continue instructions on [link](https://wiki.openwrt.org/doc/howto/hardware.button) and execute:
-    ```
-    uci add system button
-    uci set system.@button[0].button=BTN_1
-    uci set system.@button[0].action=released
-    uci set system.@button[0].handler='mosquitto_pub -h 10.10.10.1 -t /test/switch-moved -u pi -P raspberry -m 1'
-    uci add system button
-    uci set system.@button[1].button=wps
-    uci set system.@button[1].action=released
-    uci set system.@button[1].handler='mosquitto_pub -h 10.10.10.1 -t /test/button-pressed -u pi -P raspberry -m 1'
-    uci set system.@button[1].min=0
-    uci set system.@button[1].max=0
-    uci add system button
-    uci set system.@button[2].button=wps
-    uci set system.@button[2].action=released
-    uci set system.@button[2].handler='mosquitto_pub -h 10.10.10.1 -t /test/switch-moved -u pi -P raspberry -m 1'
-    uci set system.@button[2].min=1
-    uci set system.@button[2].max=10
-    uci add system button
-    uci set system.@button[3].button=BTN_1
-    uci set system.@button[3].action=pressed
-    uci set system.@button[3].handler='mosquitto_pub -h 10.10.10.1 -t /test/switch-moved -u pi -P raspberry -m 1'
-    uci commit system
-    ```
-  
-* Headless Pi Zero W + node-red config -> flash latest Raspbian image on fully(!) formatted SD-card using Etcher
-
-   Prepare for headless config via hotspot, use FR country code, see [link](https://www.mickmake.com/post/headless-pi-zero-w-2-easy-ways-of-connecting-tutorial), use Notepad++, not notepad.
-  (If using ZTE hotspot -> terminal on phone -> su -> cd /data/misc/DHCP -> cat dnsmasq.leases -> ssh pi@192.168.1.xxx)
-  
-  edit /etc/dhcpcd.conf and reboot
-    ```
-    #static IP configuration
-    interface wlan0
-    static ip_address=10.10.10.4/24
-    static routers=10.10.10.1
-    static domain_name_servers=10.10.10.1
-    ```
-   ssh pi@10.10.10.4
- 
-   sudo raspi-config (and enable VNC), use VNC Viewer to remote in
- 
-   install node-red-contrib-counter (offline copy) and node-red-dashboard (OpenPlotter) by copying files  over to /home/pi/.node-red/node_modules
- 
-   create /home/pi/filestowatch/switch-moved/switch-moved.txt and /home/pi/filestowatch/button-pressed/button-pressed.txt
-  
-   node-red-start
-  
-   import flowPiZeroW (node-red) stored in this repository, MQTT nodes are set to connect to OpenPlotter (signalk-node-red), don't forget MQTT Security = OP user/password
-   
-   sudo systemctl enable nodered.service
 
 # ESP8266 unit + DS18B20 Temperature sensor configuration
  
@@ -157,3 +91,75 @@ Future updates will show how this is progressing...
 * Last steps: power off/on ESP unit, launch Signal K and see if a new 'ws' provider is shown
 
 * Troubleshooting: use tcpdump (OpenPlotter) and Serial monitor (Arduino IDE), assure Arduino IDE is able to communicate with your ESP8266 module by reviewing the settings appropriate to your unit
+
+# Remote control installation
+* MR...
+
+* OpenWRT reset procedure: failsafe mode trigger after reset button blinking
+  telnet to 192.168.1.1 (computer IP to 192.168.1.2 over LAN), jffs2reset -y, reboot -f
+  Login with root/(empty) and set password same as OpenPlotter
+
+* OpenWRT initial config: upload mosquitto packages using WinSCP to \tmp
+  install mosquitto packages using opkg install name_of_the_package [link](https://archive.openwrt.org/chaos_calmer/15.05/ar71xx/generic/packages/)
+  from base -> libuuid_2.25.2-4 + libpthread_0.9.33.2-1 + librt_0.9.33.2-1
+  from packages -> libcares_1.10.0 + libmosquitto-nossl_1.4.7 +
+  mosquitto-client-nossl_1.4.7 + mosquitto-nossl_1.4.7
+
+* OpenWRT set to both AP mode and client mode following [link](https://stackoverflow.com/questions/29555697/luci-openwrt-wifi-bridge-client-how-to-configure)
+  (In brief: fixed IP, bridge, scan and connect to OP AP, add another wifi interface = AP, set AP security)
+  IP's: 10.10.10.2 LAN + 10.0.0.1xx Wifi (DHCP OpenPlotter), OpenWRT now reachable over http/ssh on 10.10.10.2 (even without LAN cable, if connected to OpenWRT AP)
+
+  Continue instructions on [link](https://wiki.openwrt.org/doc/howto/hardware.button) and execute:
+    ```
+    uci add system button
+    uci set system.@button[0].button=BTN_1
+    uci set system.@button[0].action=released
+    uci set system.@button[0].handler='mosquitto_pub -h 10.10.10.1 -t /test/switch-moved -u pi -P raspberry -m 1'
+    uci add system button
+    uci set system.@button[1].button=wps
+    uci set system.@button[1].action=released
+    uci set system.@button[1].handler='mosquitto_pub -h 10.10.10.1 -t /test/button-pressed -u pi -P raspberry -m 1'
+    uci set system.@button[1].min=0
+    uci set system.@button[1].max=0
+    uci add system button
+    uci set system.@button[2].button=wps
+    uci set system.@button[2].action=released
+    uci set system.@button[2].handler='mosquitto_pub -h 10.10.10.1 -t /test/switch-moved -u pi -P raspberry -m 1'
+    uci set system.@button[2].min=1
+    uci set system.@button[2].max=10
+    uci add system button
+    uci set system.@button[3].button=BTN_1
+    uci set system.@button[3].action=pressed
+    uci set system.@button[3].handler='mosquitto_pub -h 10.10.10.1 -t /test/switch-moved -u pi -P raspberry -m 1'
+    uci commit system
+    ```
+  
+# Headless Pi Zero W + node-red config
+ * flash latest Raspbian image on fully(!) formatted SD-card using Etcher
+
+ * Prepare for headless config via hotspot, use FR country code, see [link](https://www.mickmake.com/post/headless-pi-zero-w-2-easy-ways-of-connecting-tutorial), use Notepad++, not notepad.
+  (If using ZTE hotspot -> terminal on phone -> su -> cd /data/misc/DHCP -> cat dnsmasq.leases -> ssh pi@192.168.1.xxx)
+  
+* edit /etc/dhcpcd.conf and reboot
+    ```
+    #static IP configuration
+    interface wlan0
+    static ip_address=10.10.10.4/24
+    static routers=10.10.10.1
+    static domain_name_servers=10.10.10.1
+    ```
+ * Run both these commands:
+    ```
+    ssh pi@10.10.10.4
+    sudo raspi-config (and enable VNC), use VNC Viewer to remote in
+    ```
+ 
+ * install node-red-contrib-counter (offline copy) and node-red-dashboard (OpenPlotter) by copying files  over to /home/pi/.node-red/node_modules
+ 
+ * create /home/pi/filestowatch/switch-moved/switch-moved.txt and /home/pi/filestowatch/button-pressed/button-pressed.txt
+  
+ * run sudo systemctl enable nodered.service
+  
+ * import flowPiZeroW (node-red) stored in this repository, MQTT nodes are set to connect to OpenPlotter (signalk-node-red), don't forget MQTT Security = OP user/password
+   
+   
