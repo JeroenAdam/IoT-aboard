@@ -65,11 +65,11 @@ Future updates will show how this is progressing...
    The three below libraries are not published in the library manager, so for each of them: run a git clone + zip it + add .zip library (using Arduino IDE)
     -> Reactduino/Reactduino / me-no-dev/ESPAsyncWebServer / me-no-dev/ESPAsyncTCP
     
-    Run SigkSens.ino which is a part of the SigkSens directory
+    Open SigkSens.ino which is a part of the SigkSens directory
     
-    For any ESP-01 unit, go to the 4th tab (Arduino IDE) and uncomment line 64 of config.h + change the number 13 to 2
+    For any ESP-01 unit, go to the 4th tab (Arduino IDE) and uncomment line 64 of config.h (to enable One-Wire) + change the number 13 to 2
     
-    Assure Arduino IDE is set to board type 'Generic ESP8266 module', flash size set to 1M and 64K SPIFFS and COM port to what is found in Device Manager on your PC
+    Assure Arduino IDE is set to board type 'Generic ESP8266 module', flash size is set to 1M and 64K SPIFFS and COM port to what is found in Device Manager on your PC
     
     Proceed with flashing the sketch assuring pin GPIO0 and GND are connected together
     
@@ -89,9 +89,9 @@ Future updates will show how this is progressing...
     signalk-generate-token -u openplotter -e "999d" -s ./.signalk/security.json
     ```
 
-* Last steps: power off/on ESP unit, launch Signal K and see if a new 'ws' provider is shown
+* Last steps: power off/on ESP unit, launch Signal K and see if a new 'ws' provider is shown. Browsing to the sensor's IP should now show both (dummy) systemHz and freeMem values and temperature values as well.
 
-* Troubleshooting: use tcpdump (OpenPlotter) and Serial monitor (Arduino IDE), assure Arduino IDE is able to communicate with your ESP8266 module by reviewing the settings appropriate to your unit
+* Troubleshooting: use tcpdump (OpenPlotter) and Serial monitor (Arduino IDE), assure Arduino IDE is able to communicate with your ESP8266 module by reviewing the settings appropriate to your unit. Check if websocket is up by launching http://x.x.x.x/getSensorInfo.
 
 # Remote control installation
 
