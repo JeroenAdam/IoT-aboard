@@ -43,7 +43,10 @@ Future updates will show how this is progressing...
 - Simrad BR24 radar (UDP reception from digital radar on [Intel NUC](http://www.adambahri.com/images/NUCNavstation.jpg) using [OpenCPN plugin](https://github.com/opencpn-radar-pi/radar_pi/))
 # Installation notes
 * OpenPlotter: Miniplex-3USB -> Serial tab -> assign USB device (auto-detected) to Kplex and set baud to 460800
-  MQTT tab: localhost on port 1883, user/pass pi/raspberry
+
+* OpenPlotter: Enable MQTT -> localhost on port 1883, user/pass pi/raspberry
+
+* OpenPlotter: Launch SignalK, install @Signalk/Signalk-Node-Red webapp in the admin UI
 
 * OpenWRT reset procedure: failsafe mode trigger after reset button blinking
   telnet to 192.168.1.1 (computer IP to 192.168.1.2 over LAN), jffs2reset -y, reboot -f
@@ -107,8 +110,8 @@ Future updates will show how this is progressing...
   
    node-red-start
   
-   import both node-red flows stored in this repository, MQTT topics are preset to either connect to OP or to ESP (= /ESP/Sensor1/Temperature1)
-  
+   import both node-red flows stored in this repository, MQTT nodes are set to connect to OpenPlotter, don't forget MQTT Security = OP user/password
+   
    sudo systemctl enable nodered.service
 
  ESP8266 unit + DS18B20 Temperature sensor configuration
