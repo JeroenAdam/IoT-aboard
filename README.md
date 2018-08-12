@@ -115,11 +115,11 @@ Future updates will show how this is progressing...
 
 # ESP8266 unit + DS18B20 Temperature sensor configuration
  
-  My ESP8266 unit: AI-Thinker ESP-01 with 1MB memory
+* My ESP8266 unit: AI-Thinker ESP-01 with 1MB memory
 
-  Preparation: I flashed ai-thinker-v1.1.1.bin using esp8266_flasher.exe with with GPIO0 and GND connected together, cables not longer than 20cm, prerequisite: 3.3V modified TTL to USB adapter at hand and [driver](http://www.arduined.eu/ch340g-converter-windows-7-driver-download/) installed. For connections, follow this [diagram](https://www.elec-cafe.com/temperature-sensor-on-the-web-with-esp8266-and-ds18b20), 4K7 resistor between GPIO-2 and VCC is needed
+* Preparation: I flashed ai-thinker-v1.1.1.bin using esp8266_flasher.exe with with GPIO0 and GND connected together, cables not longer than 20cm, prerequisite: 3.3V modified TTL to USB adapter at hand and [driver](http://www.arduined.eu/ch340g-converter-windows-7-driver-download/) installed. For connections, follow this [diagram](https://www.elec-cafe.com/temperature-sensor-on-the-web-with-esp8266-and-ds18b20), 4K7 resistor between GPIO-2 and VCC is needed
 
-  Procedure:
+* Procedure:
    Install git, run git clone https://github.com/mxtommy/SigkSens
    follow the 6 steps on https://randomnerdtutorials.com/how-to-install-esp8266-board-arduino-ide
    follow step 6 + 7 on https://slack-files.com/T02ENM6QA-FC5GCJ88H-a74ea73f0f
@@ -139,6 +139,6 @@ Future updates will show how this is progressing...
       http://10.10.10.149/setSignalKToken?... (replace ... with token obtained by executing the below command in home directory on OpenPlotter)
       signalk-generate-token -u openplotter -e "999d" -s ./.signalk/security.json
 
-   Last steps: power off/on ESP unit, launch Signal K and see if a new 'ws' provider is shown
+* Last steps: power off/on ESP unit, launch Signal K and see if a new 'ws' provider is shown
 
-   Troubleshooting: use tcpdump (OpenPlotter) and Serial monitor (Arduino IDE), assure Arduino IDE is able to communicate with your ESP8266 module by reviewing the settings appropriate to your unit
+* Troubleshooting: use tcpdump (OpenPlotter) and Serial monitor (Arduino IDE), assure Arduino IDE is able to communicate with your ESP8266 module by reviewing the settings appropriate to your unit
