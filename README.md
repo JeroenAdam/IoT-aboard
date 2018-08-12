@@ -95,17 +95,16 @@ Future updates will show how this is progressing...
 
 # Remote control installation
 
-* Flash ([OpenWRT](https://wiki.openwrt.org/toh/tp-link/tl-mr3020) on TP-Link mini router
+* Flash [OpenWRT](https://wiki.openwrt.org/toh/tp-link/tl-mr3020) on TP-Link TL-MR3020 mini router
 
-* Router reset procedure: failsafe mode trigger after reset button blinking
-  telnet to 192.168.1.1 (computer IP to 192.168.1.2 over LAN), jffs2reset -y, reboot -f
+* Router reset procedure: failsafe mode trigger after reset button blinking / 
+  telnet to 192.168.1.1 (computer IP to 192.168.1.2 over LAN), jffs2reset -y, reboot -f / 
   Login with root/(empty) and set password same as OpenPlotter
 
-* OpenWRT initial config: upload mosquitto packages using WinSCP to \tmp
-  install mosquitto packages using opkg install name_of_the_package [link](https://archive.openwrt.org/chaos_calmer/15.05/ar71xx/generic/packages/)
-  from base -> libuuid_2.25.2-4 + libpthread_0.9.33.2-1 + librt_0.9.33.2-1
-  from packages -> libcares_1.10.0 + libmosquitto-nossl_1.4.7 +
-  mosquitto-client-nossl_1.4.7 + mosquitto-nossl_1.4.7
+* OpenWRT initial config: upload mosquitto packages using WinSCP to \tmp / 
+  install mosquitto packages using opkg install name_of_the_package [link](https://archive.openwrt.org/chaos_calmer/15.05/ar71xx/generic/packages/) / 
+  from base -> libuuid_2.25.2-4 + libpthread_0.9.33.2-1 + librt_0.9.33.2-1 / 
+  from packages -> libcares_1.10.0 + libmosquitto-nossl_1.4.7 + mosquitto-client-nossl_1.4.7 + mosquitto-nossl_1.4.7
 
 * OpenWRT set to both AP mode and client mode following [link](https://stackoverflow.com/questions/29555697/luci-openwrt-wifi-bridge-client-how-to-configure)
   (In brief: fixed IP, bridge, scan and connect to OP AP, add another wifi interface = AP, set AP security)
