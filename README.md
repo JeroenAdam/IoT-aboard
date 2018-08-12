@@ -134,7 +134,7 @@ Future updates will show how this is progressing...
     
     For any ESP-01 unit, go to the 4th tab (Arduino IDE) and uncomment line 64 of config.h + change the number 13 to 2
     
-    Assure Arduino IDE is set to board type 'Generic ESP8266 module' and flash size set to 1M and 64K SPIFFS
+    Assure Arduino IDE is set to board type 'Generic ESP8266 module', flash size set to 1M and 64K SPIFFS and COM port to what is found in Device Manager on your PC
     
     Proceed with flashing the sketch
     
