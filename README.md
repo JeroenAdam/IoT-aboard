@@ -91,7 +91,7 @@ Future updates will show how this is progressing...
 
 * Last steps: power off/on ESP unit, launch Signal K and see if a new 'ws' provider is shown. Browsing to the sensor's IP should now show both (dummy) systemHz and freeMem values and temperature values as well.
 
-* Troubleshooting: use tcpdump (OpenPlotter) and Serial monitor (Arduino IDE), assure Arduino IDE is able to communicate with your ESP8266 module by reviewing the settings appropriate to your unit. Check if websocket is up by launching http://x.x.x.x/getSensorInfo.
+* Troubleshooting: use tcpdump (OpenPlotter) and Serial monitor (Arduino IDE), debug information is sent during the first few seconds after power up, it is tricky to have the serial monitor open in time. Assure Arduino IDE is able to communicate with your ESP8266 module by reviewing the settings appropriate to your unit. Check if the websocket is up by launching http://x.x.x.x/getSensorInfo.
 
 # Remote control installation
 
