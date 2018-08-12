@@ -117,7 +117,7 @@ Future updates will show how this is progressing...
  
 * My ESP8266 unit: AI-Thinker ESP-01 with 1MB memory
 
-* Preparation: flash ai-thinker-v1.1.1.bin using esp8266_flasher.exe with with GPIO0 and GND connected together, cables not longer than 20cm, prerequisite: 3.3V modified TTL to USB adapter at hand and [driver](http://www.arduined.eu/ch340g-converter-windows-7-driver-download/) installed. For connections, follow this [diagram](https://www.elec-cafe.com/temperature-sensor-on-the-web-with-esp8266-and-ds18b20), 4K7 resistor between GPIO-2 and VCC is needed
+* Preparation: flash ai-thinker-v1.1.1.bin using esp8266_flasher.exe with with GPIO0 and GND connected together, cables not longer than 20cm, prerequisite: 3.3V modified TTL to USB adapter at hand and [driver](http://www.arduined.eu/ch340g-converter-windows-7-driver-download/) installed. For connections, follow this [diagram](https://www.elec-cafe.com/temperature-sensor-on-the-web-with-esp8266-and-ds18b20), 4K7 resistor between GPIO-2 and VCC is needed.
 
 * Procedure:
 
@@ -125,11 +125,13 @@ Future updates will show how this is progressing...
    
    Follow the 6 steps on https://randomnerdtutorials.com/how-to-install-esp8266-board-arduino-ide
    
-   Ffollow step 6 + 7 on https://slack-files.com/T02ENM6QA-FC5GCJ88H-a74ea73f0f
+   Follow step 6 + 7 on https://slack-files.com/T02ENM6QA-FC5GCJ88H-a74ea73f0f
    The three below libraries are not published in the library manager, so for each of them: run a git clone + zip it + add .zip library (using Arduino IDE)
     -> Reactduino/Reactduino / me-no-dev/ESPAsyncWebServer / me-no-dev/ESPAsyncTCP
     
-    For any ESP-01 unit, uncomment line 64 of config.h + change the number 13 to 2 (using Arduino IDE)
+    Run SigkSens.ino which is a part of the SigkSens directory
+    
+    For any ESP-01 unit, go to the 4th tab (Arduino IDE) and uncomment line 64 of config.h + change the number 13 to 2
     
     Assure Arduino IDE is set to board type 'Generic ESP8266 module' and flash size set to 1M and 64K SPIFFS
     
@@ -141,12 +143,12 @@ Future updates will show how this is progressing...
     
     Launch /var/log/syslog on OpenPlotter and search for the latest DHCPOFFER, note the IP address
     
-    Run the below 5 web requests (but replace with your IP from the previous step), the browser should return "success" for each of them
+    Run the below 5 web requests (but replace with the IP from the previous step), the browser should return "success" for each of them
       http://10.10.10.149/setNewHostname?hostname=ESP1
       http://10.10.10.149/setSignalKPort?port=3000
       http://10.10.10.149/setSignalKHost?host=10.10.10.1
-      http://10.10.10.149/setSensorAttr?address=28:FF:79:26:81:16:04:41&attrName=tempK&path=propulsion.eng.temperature (replace with address of your sensor, keep or replace path as appropriate)
-      http://10.10.10.149/setSignalKToken?... (replace ... with token obtained by executing the below command in home directory on OpenPlotter)
+      http://10.10.10.149/setSensorAttr?address=28:FF:79:26:81:16:04:41&attrName=tempK&path=propulsion.eng.temperature (replace with the  address of your sensor, keep or replace path as appropriate)
+      http://10.10.10.149/setSignalKToken?... (replace ... with the token obtained by executing the below command in the home directory on OpenPlotter)
       signalk-generate-token -u openplotter -e "999d" -s ./.signalk/security.json
 
 * Last steps: power off/on ESP unit, launch Signal K and see if a new 'ws' provider is shown
