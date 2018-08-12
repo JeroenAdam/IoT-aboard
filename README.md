@@ -57,7 +57,7 @@ Future updates will show how this is progressing...
 
    Download and install Arduino IDE
    
-   Download and install git, run git clone https://github.com/mxtommy/SigkSens
+   Clone https://github.com/mxtommy/SigkSens to your PC (by downloading as .zip or use git clone from cli)
    
    Follow the 6 steps on https://randomnerdtutorials.com/how-to-install-esp8266-board-arduino-ide
    
