@@ -117,7 +117,7 @@ Future updates will show how this is progressing...
  
 * My ESP8266 unit: AI-Thinker ESP-01 with 1MB memory
 
-* Preparation: flash ai-thinker-v1.1.1.bin using esp8266_flasher.exe with with GPIO0 and GND connected together, cables not longer than 20cm, prerequisite: 3.3V modified TTL to USB adapter at hand and [driver](http://www.arduined.eu/ch340g-converter-windows-7-driver-download/) installed. For connections, follow this [diagram](https://www.elec-cafe.com/temperature-sensor-on-the-web-with-esp8266-and-ds18b20), 4K7 resistor between GPIO-2 and VCC is needed.
+* Preparation: flash ai-thinker-v1.1.1.bin using esp8266_flasher.exe with with [GPIO0 and GND connected together](https://ambimod.jimdo.com/2017/01/26/tuto-comment-programmer-un-esp-01-et-l-utiliser-%C3%A0-la-place-d-un-nodemcu/) , cables not longer than 20cm, prerequisite: 3.3V modified TTL to USB adapter at hand and [driver](http://www.arduined.eu/ch340g-converter-windows-7-driver-download/) installed. For connections, follow this [diagram](https://www.elec-cafe.com/temperature-sensor-on-the-web-with-esp8266-and-ds18b20), 4K7 resistor between GPIO-2 and VCC is needed.
 
 * Procedure:
    Download and install Arduino IDE
