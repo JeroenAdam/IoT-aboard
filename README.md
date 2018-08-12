@@ -18,7 +18,7 @@ Now I want to expand on this functionallity, I'll be diving into [Node.js](https
 My current project is developing a solution based on such a Signal K server combined with my bright LED display for the purpose of safety when navigating long routes. This server is hosted on a Raspberry Pi running OpenPlotter (=Debian Linux customized for marine use).
 
 I must confess that I don't fully trust my wife/autopilot handling the steer, but I didn't tell my wife about this yet :)
-I'd like to see the LED matrix show compass heading (as I managed earlier with Node-RED) while my server plugin compares the current heading against a preset value. Let's say that the compass course deviates 20 degrees from my preset variable, then I want the LED matrix to display the unused pixels in red blinking.
+I'd like to see the LED display show compass heading (as I managed earlier with Node-RED) while my server plugin compares the current heading against a preset value. Let's say that the compass course deviates 20 degrees from my preset variable, then I want the LED display to display the unused pixels in red blinking.
 Other kind of alarms would be thinkable as well:
 - engine temperature (ESP8266) reaching a certain treshold 
 - wind speed reaching a certain treshold 
@@ -31,7 +31,7 @@ Beside getting my NMEA sensor data (compass course/wind speed/speed through wate
 
 Next challenges:
 - the Signal K server is mounted behind wood at the navigation station and is some distance away from the LED display which is plugged on top of my second Raspberry (=Pi Zero W), the LED display will need to be controllable over HTTP
-- I'm not an experienced Javascript programmer, luckily I found a [npm module](https://github.com/guigrpa/sense-hat) for handling the LED matrix.
+- I'm not an experienced Javascript programmer, luckily I found a [npm module](https://github.com/guigrpa/sense-hat) for handling the LED display.
 
 Future updates will show how this is progressing...
 
