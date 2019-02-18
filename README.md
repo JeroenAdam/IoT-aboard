@@ -40,12 +40,13 @@ Future updates will show how this is progressing...
 - [Raspberry Pi Zero W](https://www.raspberrypi.org/products/raspberry-pi-zero-w/) + bright [LED matrix](https://www.raspberrypi.org/products/sense-hat/) for displaying critical navigation data (Linux/[Node-red](https://nodered.org)/MQTT)
 - Mini router converted to remote control for Raspberry Pi Zero W ([OpenWRT](https://wiki.openwrt.org/toh/tp-link/tl-mr3020)/MQTT)
 - Simrad BR24 radar (UDP reception from digital radar on [Intel NUC](http://www.adambahri.com/images/NUCNavstation.jpg) using [OpenCPN plugin](https://github.com/opencpn-radar-pi/radar_pi/))
+
 # OpenPlotter configuration
 * OpenPlotter: Miniplex-3USB -> Serial tab -> assign USB device (auto-detected) to Kplex and set baud to 460800
 
 * OpenPlotter: Enable MQTT -> localhost on port 1883, user/pass pi/raspberry
 
-* OpenPlotter: Launch Signal K, install Signalk-Node-Red webapp in the admin UI, import flowOP (node-red) stored in this repository
+* OpenPlotter: Launch Signal K, install Signalk-Node-Red webapp in the admin UI, user/pass openplotter/openplotter, import flowOP (node-red) stored in this repository
 
 # ESP8266 unit + DS18B20 Temperature sensor configuration
  
