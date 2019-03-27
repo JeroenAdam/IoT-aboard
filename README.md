@@ -3,7 +3,7 @@
 IoT (and open source software) have recently changed how boat owners consume and interact with data on their boat, I'm very excited to present you the beginning of my journey into this technology. 
 
  This summer, I have been implementing a bright LED display functioning as a (data) repeater for displaying critical navigation data.
-It is mounted below deck at the mast support and readable at the steer about 8m. distance away. A short video [here](http://www.adambahri.com/images/DIY-repeater.mp4).
+It is mounted below deck at the mast support and readable at the steer about 8m. distance away. A short video [here](https://www.youtube.com/watch?v=Y4dvQ_Ro5gE).
 
  I cycle through 5 views (engine temperature/compass course/wind speed/atmospheric pressure/speed through water) using a remote control. The LED display quickly scrolls the data repeatedly. The remote control actually is a mini router with the stock firmware replaced by OpenWRT + Mosquitto.
  
