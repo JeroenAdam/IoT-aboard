@@ -171,4 +171,4 @@ Future updates will show how this is progressing...
  * if temperature needed in OpenCPN, ESP needs to be configured with path 'environment.outside.temperature' instead of 'propulsion.eng.temperature'
  * Convert Signal K to NMEA0183: activate DBT (and XDR TempAir)
  * adjust flowOP to 'environment.outside.temperature' (if ESP was set with that)
- * optional: Signal K delta simulator plugin installed and activated, set with 'environment.depth.belowTransducer'
+ * optional: Signal K delta simulator plugin installed and activated, set with 'environment.depth.belowTransducer' + Node-Red: add signalk send node, MQTT output node
