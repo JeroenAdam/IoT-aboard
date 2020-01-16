@@ -163,3 +163,12 @@ Future updates will show how this is progressing...
  * run sudo systemctl enable nodered.service
   
  * import flowPiZeroW (node-red) stored in this repository, MQTT nodes are set to connect to OpenPlotter (signalk-node-red), don't forget MQTT Security = OP user/password
+ 
+# Signal K config
+
+ * install + activate plugins: 'Node Red', 'Convert Signal K to NMEA0183', 'Signal K to Prometheus'
+ * Prometheus endpoint will publish all incoming Signal K paths http://localhost:3000/signalk/v1/api/prometheus
+ * if temperature needed in OpenCPN, ESP needs to be configured with path 'environment.outside.temperature' instead of 'propulsion.eng.temperature'
+ * Convert Signal K to NMEA0183: activate DBT (and XDR TempAir)
+ * adjust flowOP to 'environment.outside.temperature' (if ESP was set with that)
+ * optional: Signal K delta simulator plugin installed and activated, set with 'environment.depth.belowTransducer'
