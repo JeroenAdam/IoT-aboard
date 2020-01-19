@@ -42,7 +42,7 @@ Future updates will show how this is progressing...
 - Simrad BR24 radar (UDP reception from digital radar on [Intel NUC](http://www.adambahri.com/images/NUCNavstation.jpg) using [OpenCPN plugin](https://github.com/opencpn-radar-pi/radar_pi/))
 
 # OpenPlotter configuration
-* OpenPlotter: Miniplex-3USB -> Serial tab -> assign USB device (auto-detected) to Kplex and set baud to 460800
+* OpenPlotter: Miniplex-3USB -> Serial tab -> assign USB device (auto-detected) to Signal K and set type NMEA0183 and baud to 460800
 
 * OpenPlotter: Enable MQTT -> localhost on port 1883, user/pass pi/raspberry
 
@@ -166,9 +166,9 @@ Future updates will show how this is progressing...
  
 # Signal K config
 
- * install + activate plugins: 'Node Red', 'Convert Signal K to NMEA0183', 'Signal K to Prometheus'
+ * install + activate plugins: 'Node-Red', 'Signal K - MQTT Gateway', 'Signal K to Prometheus'
  * Prometheus endpoint will publish all incoming Signal K paths http://localhost:3000/signalk/v1/api/prometheus
- * if temperature needed in OpenCPN, ESP needs to be configured with path 'environment.outside.temperature' instead of 'propulsion.eng.temperature'
- * Convert Signal K to NMEA0183: activate DBT (and XDR TempAir)
+ * if temperature needed in OpenCPN, ESP needs to be configured with path 'environment.outside.temperature' instead of 'propulsion.eng.temperature' (check OpenPlotter 2.0 documentation for updates)
+ * Convert Signal K to NMEA0183: activate XDR TempAir
  * adjust flowOP to 'environment.outside.temperature' (if ESP was set with that)
- * optional: Signal K delta simulator plugin installed and activated, set with 'environment.depth.belowTransducer' + Node-Red: add signalk send node, MQTT output node
+ * optional: Signal K delta simulator plugin installed and activated, set with 'environment.depth.belowTransducer' + Node-Red: add signalk send node, MQTT output node + Convert Signal K to NMEA0183: activate DBT
