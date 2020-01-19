@@ -42,7 +42,7 @@ Future updates will show how this is progressing...
 - Simrad BR24 radar (UDP reception from digital radar on [Intel NUC](http://www.adambahri.com/images/NUCNavstation.jpg) using [OpenCPN plugin](https://github.com/opencpn-radar-pi/radar_pi/))
 
 # OpenPlotter configuration
-* OpenPlotter: Miniplex-3USB -> Serial tab -> assign USB device (auto-detected) to Signal K and set type NMEA0183 and baud to 460800
+* OpenPlotter: Serial (component) -> assign USB device (auto-detected) to Signal K and set (input) type NMEA0183 and baud to 460800
 
 * OpenPlotter: Enable MQTT -> localhost on port 1883, user/pass pi/raspberry
 
