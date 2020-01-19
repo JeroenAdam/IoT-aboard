@@ -43,6 +43,7 @@ Future updates will show how this is progressing...
 
 # OpenPlotter configuration
 * OpenPlotter: Serial (component) -> assign USB device (auto-detected) to Signal K and set (input) type NMEA0183 and baud to 460800
+* Assure internet connectivity with USB tethering
 
 # Signal K config
 * configure Signal K via admin UI, user/pass openplotter/openplotter, import flowOP (node-red) stored in this repository
