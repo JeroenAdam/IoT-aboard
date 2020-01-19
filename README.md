@@ -50,7 +50,8 @@ Future updates will show how this is progressing...
 * Prometheus endpoint will publish all incoming Signal K paths http://localhost:3000/signalk/v1/api/prometheus
 * if temperature needed in OpenCPN, ESP needs to be configured with path 'environment.outside.temperature' instead of 'propulsion.eng.temperature' (check OpenPlotter 2.0 documentation for updates)
 * Convert Signal K to NMEA0183: activate XDR TempAir
-* adjust flowOP to 'environment.outside.temperature' (if ESP was set with that)
+* Configure Signal K - MQTT Gateway: Run local server, pi/raspberry
+* adjust flowOP to 'environment.outside.temperature' (if ESP was set with that), assure pi/raspberry set for MQTT (Security tab)
 * optional: Signal K delta simulator plugin installed and activated, set with 'environment.depth.belowTransducer' + Node-Red: add signalk send node, MQTT output node + Convert Signal K to NMEA0183: activate DBT
 
 
