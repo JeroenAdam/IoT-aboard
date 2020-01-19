@@ -44,9 +44,15 @@ Future updates will show how this is progressing...
 # OpenPlotter configuration
 * OpenPlotter: Serial (component) -> assign USB device (auto-detected) to Signal K and set (input) type NMEA0183 and baud to 460800
 
-* OpenPlotter: Enable MQTT -> localhost on port 1883, user/pass pi/raspberry
+# Signal K config
+* configure Signal K via admin UI, user/pass openplotter/openplotter, import flowOP (node-red) stored in this repository
+* install + activate plugins: 'Node-Red', 'Signal K - MQTT Gateway', 'Signal K to Prometheus'
+* Prometheus endpoint will publish all incoming Signal K paths http://localhost:3000/signalk/v1/api/prometheus
+* if temperature needed in OpenCPN, ESP needs to be configured with path 'environment.outside.temperature' instead of 'propulsion.eng.temperature' (check OpenPlotter 2.0 documentation for updates)
+* Convert Signal K to NMEA0183: activate XDR TempAir
+* adjust flowOP to 'environment.outside.temperature' (if ESP was set with that)
+* optional: Signal K delta simulator plugin installed and activated, set with 'environment.depth.belowTransducer' + Node-Red: add signalk send node, MQTT output node + Convert Signal K to NMEA0183: activate DBT
 
-* OpenPlotter: Launch Signal K, install Signalk-Node-Red webapp in the admin UI, user/pass openplotter/openplotter, import flowOP (node-red) stored in this repository
 
 # ESP8266 unit + DS18B20 Temperature sensor configuration
  
@@ -164,11 +170,3 @@ Future updates will show how this is progressing...
   
  * import flowPiZeroW (node-red) stored in this repository, MQTT nodes are set to connect to OpenPlotter (signalk-node-red), don't forget MQTT Security = OP user/password
  
-# Signal K config
-
- * install + activate plugins: 'Node-Red', 'Signal K - MQTT Gateway', 'Signal K to Prometheus'
- * Prometheus endpoint will publish all incoming Signal K paths http://localhost:3000/signalk/v1/api/prometheus
- * if temperature needed in OpenCPN, ESP needs to be configured with path 'environment.outside.temperature' instead of 'propulsion.eng.temperature' (check OpenPlotter 2.0 documentation for updates)
- * Convert Signal K to NMEA0183: activate XDR TempAir
- * adjust flowOP to 'environment.outside.temperature' (if ESP was set with that)
- * optional: Signal K delta simulator plugin installed and activated, set with 'environment.depth.belowTransducer' + Node-Red: add signalk send node, MQTT output node + Convert Signal K to NMEA0183: activate DBT
